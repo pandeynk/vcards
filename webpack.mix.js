@@ -11,5 +11,16 @@ const { mix } = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.js([
+	'resources/assets/js/plugins/jQuery/jquery-1.9.1.min.js',
+	'resources/assets/js/plugins/bootstrap/bootstrap.min.js',
+	'resources/assets/js/plugins/AdminLTE/app.min.js',
+	'resources/assets/js/app.js'
+
+	], 'public/js/app.js')
+   .styles([
+   	'resources/assets/css/bootstrap.min.css',
+   	'resources/assets/css/AdminLTE.min.css',
+   	'resources/assets/css/skin-blue.min.css'
+   	], 'public/css/app.css')
+   .copyDirectory('resources/assets/img', 'public/img');

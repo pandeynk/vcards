@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('login/github', 'Auth\LoginController@redirectToGithubProvider');
@@ -20,6 +20,10 @@ Route::get('login/github/callback', 'Auth\LoginController@handleGithubProviderCa
 
 Route::get('login/google', 'Auth\LoginController@redirectToGoogleProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleGoogleProviderCallback');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
